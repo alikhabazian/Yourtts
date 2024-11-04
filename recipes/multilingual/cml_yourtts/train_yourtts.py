@@ -61,7 +61,7 @@ libritts_config = BaseDatasetConfig(
     dataset_name="libri_tts",
     meta_file_train="",
     meta_file_val="",
-    path=os.path.join(LIBRITTS_DOWNLOAD_PATH, "train-clean-360/"),
+    path=os.path.join(LIBRITTS_DOWNLOAD_PATH, "LibriTTS/","train-clean-360/"),
     language="en",
 )
 
