@@ -11,6 +11,8 @@ from TTS.tts.datasets import load_tts_samples
 from TTS.tts.models.vits import CharactersConfig, Vits, VitsArgs, VitsAudioConfig
 from TTS.utils.downloaders import download_libri_tts
 
+
+from get_cml_dataset import get_cml_dataset
 torch.set_num_threads(24)
 
 # pylint: disable=W0105
@@ -45,7 +47,7 @@ MAX_AUDIO_LEN_IN_SECONDS = float("inf")
 ### Download CML-TTS dataset
 # You need to download the dataset for all languages manually and extract it to a path and then set the CML_DATASET_PATH to this path: https://github.com/freds0/CML-TTS-Dataset#download
 CML_DATASET_PATH = "./datasets/CML-TTS-Dataset/"
-
+get_cml_dataset()
 
 ### Download LibriTTS dataset
 # it will automatic download the dataset, if you have problems you can comment it and manually donwload and extract it ! Download link: https://www.openslr.org/resources/60/train-clean-360.tar.gz
