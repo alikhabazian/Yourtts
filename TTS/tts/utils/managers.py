@@ -258,6 +258,7 @@ class EmbeddingManager(BaseIDManager):
         Returns:
             List[List]: all the embeddings of the given speaker.
         """
+        print(self.embeddings_by_names.keys())
         return self.embeddings_by_names[idx]
 
     def get_embeddings_by_names(self) -> Dict:

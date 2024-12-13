@@ -12,7 +12,7 @@ from TTS.tts.models.vits import CharactersConfig, Vits, VitsArgs, VitsAudioConfi
 from TTS.utils.downloaders import download_libri_tts
 
 
-from get_cml_dataset import get_cml_dataset
+#from get_cml_dataset import get_cml_dataset
 torch.set_num_threads(24)
 
 # pylint: disable=W0105
@@ -29,10 +29,10 @@ RUN_NAME = "YourTTS-CML-TTS"
 OUT_PATH = os.path.dirname(os.path.abspath(__file__))  # "/raid/coqui/Checkpoints/original-YourTTS/"
 
 # If you want to do transfer learning and speedup your training you can set here the path to the CML-TTS available checkpoint that cam be downloaded here:  https://drive.google.com/u/2/uc?id=1yDCSJ1pFZQTHhL09GMbOrdjcPULApa0p
-RESTORE_PATH = "/raid/edresson/CML_YourTTS/checkpoints_yourtts_cml_tts_dataset/best_model.pth"  # Download the checkpoint here:  https://drive.google.com/u/2/uc?id=1yDCSJ1pFZQTHhL09GMbOrdjcPULApa0p
+RESTORE_PATH = "~/Yourtts/pretrained/best_model_YourTTS_VCTK.pth"  # Download the checkpoint here:  https://drive.google.com/u/2/uc?id=1yDCSJ1pFZQTHhL09GMbOrdjcPULApa0p
 
 # This paramter is useful to debug, it skips the training epochs and just do the evaluation  and produce the test sentences
-SKIP_TRAIN_EPOCH = False
+SKIP_TRAIN_EPOCH = True
 
 # Set here the batch size to be used in training and evaluation
 BATCH_SIZE = 32
@@ -47,7 +47,7 @@ MAX_AUDIO_LEN_IN_SECONDS = float("inf")
 ### Download CML-TTS dataset
 # You need to download the dataset for all languages manually and extract it to a path and then set the CML_DATASET_PATH to this path: https://github.com/freds0/CML-TTS-Dataset#download
 CML_DATASET_PATH = "./datasets/CML-TTS-Dataset/"
-get_cml_dataset()
+#get_cml_dataset()
 
 ### Download LibriTTS dataset
 # it will automatic download the dataset, if you have problems you can comment it and manually donwload and extract it ! Download link: https://www.openslr.org/resources/60/train-clean-360.tar.gz
@@ -249,8 +249,8 @@ config = VitsConfig(
     max_audio_len=SAMPLE_RATE * MAX_AUDIO_LEN_IN_SECONDS,
     mixed_precision=False,
     test_sentences=[
-        ["Voc\u00ea ter\u00e1 a vista do topo da montanha que voc\u00ea escalar.", "9351", None, "pt-br"],
-        ["Quando voc\u00ea n\u00e3o corre nenhum risco, voc\u00ea arrisca tudo.", "12249", None, "pt-br"],
+        ["Voc\u00ea ter\u00e1 a vista do topo da montanha que voc\u00ea escalar.", "", None, "pt-br"],
+  #      ["Quando voc\u00ea n\u00e3o corre nenhum risco, voc\u00ea arrisca tudo.", "12249", None, "pt-br"],
         [
             "S\u00e3o necess\u00e1rios muitos anos de trabalho para ter sucesso da noite para o dia.",
             "2961",

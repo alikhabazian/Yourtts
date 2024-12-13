@@ -3,6 +3,10 @@ import requests
 import tarfile
 from tqdm import tqdm
 
+proxies = {
+    'http': 'socks5h://127.0.0.1:14000',
+    'https': 'socks5h://127.0.0.1:14000',
+}
 # List of URLs to download
 urls = [
     "https://www.openslr.org/resources/146/cml_tts_dataset_dutch_v0.1.tar.bz",
@@ -32,7 +36,7 @@ def get_cml_dataset():
 
         # Download the file with progress bar
         print(f"Downloading {filename}...")
-        response = requests.get(url, stream=True)
+        response = requests.get(url, stream=True,proxies=proxies)
         if response.status_code == 200:
             total_size = int(response.headers.get('content-length', 0))
             with open(file_path, "wb") as file, tqdm(
@@ -66,3 +70,4 @@ def get_cml_dataset():
         # Optionally, delete the tar.bz file after extraction
         os.remove(file_path)
         print(f"{filename} removed after extraction.\n")
+get_cml_dataset()

@@ -170,3 +170,12 @@ depot/*
 coqui_recipes/*
 local_scripts/*
 coqui_demos/*
+
+# Data
+recipes/multilingual/cml_yourtts/dataset/*
+recipes/multilingual/cml_yourtts/datasets/*
+recipes/multilingual/cml_yourtts/ls.txt
+pretrained/*
+recipes/multilingual/cml_yourtts/TTS
+recipes/multilingual/cml_yourtts/YourTTS-CML-TTS-*/*
+
